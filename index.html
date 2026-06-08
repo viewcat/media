@@ -3,14 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Video Archive</title>
+    <title>Video Archive</title>
     <style>
-        body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f9f9f9; }
-        .category { margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .video-card { background: white; border: 1px solid #ddd; padding: 10px; border-radius: 6px; }
-        video { width: 100%; height: auto; border-radius: 4px; }
-        h3 { margin-top: 5px; font-size: 1rem; color: #333; }
+        /* Dark Theme Variables */
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-link: #58a6ff;
+            --accent-hover: #1f6feb;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 30px 20px; 
+            background-color: var(--bg-color); 
+            color: var(--text-main);
+        }
+
+        h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .category { 
+            margin-bottom: 20px; 
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 24px; 
+        }
+
+        .video-card { 
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            padding: 16px; 
+            border-radius: 8px; 
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        video { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 6px; 
+            background-color: #000;
+        }
+
+        .video-title { 
+            margin: 12px 0 6px 0; 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            color: var(--text-main); 
+        }
+
+        /* Direct Link Styling */
+        .link-container {
+            margin-top: auto; /* Pushes the link to the bottom of the card if heights vary */
+            padding-top: 10px;
+        }
+
+        .direct-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--accent-link);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .direct-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .direct-link::before {
+            content: "🔗";
+            margin-right: 6px;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
@@ -19,22 +107,29 @@
 
     <!-- Subdirectory 1: Category Alpha -->
     <div class="category">
-        <h2>Category Alpha</h2>
+        <h2>Sushi</h2>
         <div class="grid">
+            
             <div class="video-card">
                 <video controls preload="metadata">
-                    <source src="category-alpha/video1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                    <source src="sushi/burnice/AdmiredMellowFlicker.mp4" type="video/mp4">
                 </video>
-                <h3>Video 1 Title</h3>
+                <div class="video-title">Burnice</div>
+                <div class="link-container">
+                    <a class="direct-link" href="category-alpha/video1.mp4" target="_blank" download>Open Direct File / Download</a>
+                </div>
             </div>
+
             <div class="video-card">
                 <video controls preload="metadata">
-                    <source src="category-alpha/video2.mov" type="video/quicktime">
-                    Your browser does not support the video tag.
+                    <source src="category-alpha/video2.mp4" type="video/mp4">
                 </video>
-                <h3>Video 2 Title</h3>
+                <div class="video-title">Video 2 Title</div>
+                <div class="link-container">
+                    <a class="direct-link" href="category-alpha/video2.mp4" target="_blank" download>Open Direct File / Download</a>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -42,12 +137,17 @@
     <div class="category">
         <h2>Category Beta</h2>
         <div class="grid">
+
             <div class="video-card">
                 <video controls preload="metadata">
                     <source src="category-beta/video3.mp4" type="video/mp4">
                 </video>
-                <h3>Video 3 Title</h3>
+                <div class="video-title">Video 3 Title</div>
+                <div class="link-container">
+                    <a class="direct-link" href="category-beta/video3.mp4" target="_blank" download>Open Direct File / Download</a>
+                </div>
             </div>
+
         </div>
     </div>
 
