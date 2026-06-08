@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Archive</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpeg">
     <style>
         /* Dark Theme Variables */
         :root {
@@ -150,5 +150,9 @@
         </div>
     </div>
 
+    <script>
+        const randStr = () => Math.random().toString(36).substring(2).toUpperCase();
+	    document.title = `${randStr()}${randStr()}${randStr()}`;
+    </script>
 </body>
 </html>
