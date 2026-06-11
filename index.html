@@ -219,6 +219,16 @@
                 </div>
             </div>
 
+            <div class="video-card">
+                <video autoplay muted loop playsinline>
+                    <source src="sushi/booty.mp4" type="video/mp4">
+                </video>
+                <div class="video-title">Booty</div>
+                <div class="link-container">
+                    <a class="direct-link" href="sushi/booty.mp4" target="_blank" download>Direct File / Download</a>
+                </div>
+            </div>
+
 <!-- APPEND_HERE_sushi -->
 
         </div>
@@ -299,6 +309,15 @@
     <script>
         const randStr = () => Math.random().toString(36).substring(2).toUpperCase();
 	    document.title = `${randStr()}${randStr()}${randStr()}`;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.play();
+                else entry.target.pause();
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('video').forEach(video => observer.observe(video));
     </script>
 </body>
 </html>
